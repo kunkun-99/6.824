@@ -59,17 +59,18 @@ func DoMapTask(mapf func(string, string) []KeyValue, reply *Task) {
 	}
 	// 创建临时文件
 	for i := 0; i < rn; i++ {
-		tempFilename := "mr-" + strconv.Itoa(reply.TaskId) + "-" + strconv.Itoa(i)
-		fp, err := os.Create(tempFilename)
+		Filename := "mr-" + strconv.Itoa(reply.TaskId) + "-" + strconv.Itoa(i)
+		dir, _ := os.Getwd()
+		tempFile, err := ioutil.TempFile(dir, "mr-tmp-*")
 		if err != nil {
-			fmt.Println("文件创建失败。")
-			return
+			fmt.Printf("create tempfile failed!\n")
 		}
-		enc := json.NewEncoder(fp)
+		enc := json.NewEncoder(tempFile)
 		for _, kv := range rnHash[i] {
 			enc.Encode(&kv)
 		}
-		fp.Close()
+		os.Rename(tempFile.Name(), Filename)
+		tempFile.Close()
 	}
 }
 
@@ -89,7 +90,11 @@ func DoReduceTask(reducef func(string, []string) string, reply *Task) {
 	}
 	sort.Sort(ByKey(kva))
 	oname := "mr-out-" + string(reply.Filenames[0][len(reply.Filenames[0])-1])
-	ofile, _ := os.Create(oname)
+	dir, _ := os.Getwd()
+	tempFile, err := ioutil.TempFile(dir, "mr-tmp-*")
+	if err != nil {
+		fmt.Printf("create tempfile failed!\n")
+	}
 	i := 0
 	for i < len(kva) {
 		j := i + 1
@@ -103,10 +108,12 @@ func DoReduceTask(reducef func(string, []string) string, reply *Task) {
 		output := reducef(kva[i].Key, values)
 
 		// this is the correct format for each line of Reduce output.
-		fmt.Fprintf(ofile, "%v %v\n", kva[i].Key, output)
+		fmt.Fprintf(tempFile, "%v %v\n", kva[i].Key, output)
 
 		i = j
 	}
+	os.Rename(tempFile.Name(), oname)
+	tempFile.Close()
 
 }
 

@@ -1,0 +1,4 @@
+Test (2B): RPC counts aren't too high ...
+  ... Passed --   2.3  3   48   12666   12
+PASS
+ok  	6.824/raft	2.317s
