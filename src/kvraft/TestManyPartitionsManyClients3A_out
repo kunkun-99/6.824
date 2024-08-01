@@ -1,0 +1,4 @@
+Test: partitions, many clients (3A) ...
+  ... Passed --  23.0  5 30129 2770
+PASS
+ok  	6.824/kvraft	23.024s

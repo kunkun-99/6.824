@@ -1,0 +1,4 @@
+Test: InstallSnapshot RPC (3B) ...
+2023/05/30 04:28:26 failed to read persist
+exit status 1
+FAIL	6.824/kvraft	1.714s

@@ -1,0 +1,66 @@
+2023/05/29 20:50:05 ----begin put-----
+2023/05/29 20:50:05 KVServer 0 PutAppend start,ClientId:2758348425504638065,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 0 Error wrong leader
+2023/05/29 20:50:05 KVServer 1 PutAppend start,ClientId:2758348425504638065,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 1 Error wrong leader
+2023/05/29 20:50:05 KVServer 4 PutAppend start,ClientId:2758348425504638065,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 4 Error wrong leader
+2023/05/29 20:50:05 KVServer 2 PutAppend start,ClientId:2758348425504638065,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 2 Error wrong leader
+2023/05/29 20:50:05 KVServer 3 PutAppend start,ClientId:2758348425504638065,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 3 Error wrong leader
+2023/05/29 20:50:05 KVServer 0 PutAppend start,ClientId:2758348425504638065,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 0 Error wrong leader
+2023/05/29 20:50:05 KVServer 1 PutAppend start,ClientId:2758348425504638065,SeqId:1Index:1
+2023/05/29 20:50:05 kv 1 ReceiveApplyMsg,index:1
+2023/05/29 20:50:05 ------SendingApplyMsg ClientId:2758348425504638065 SeqId:1 Index:1-------
+2023/05/29 20:50:05 replyMsg.Err:OK,Term:1,index:1
+2023/05/29 20:50:05 index 1 chan closed!
+2023/05/29 20:50:05 kv 2 ReceiveApplyMsg,index:1
+Test: progress in majority (3A) ...
+2023/05/29 20:50:05 ----ckp1 begin put-----
+2023/05/29 20:50:05 KVServer 3 PutAppend start,ClientId:1191088554788706993,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 3 Error wrong leader
+2023/05/29 20:50:05 KVServer 2 PutAppend start,ClientId:1191088554788706993,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 2 Error wrong leader
+2023/05/29 20:50:05 KVServer 0 PutAppend start,ClientId:1191088554788706993,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 0 Error wrong leader
+2023/05/29 20:50:05 kv 4 ReceiveApplyMsg,index:1
+2023/05/29 20:50:05 KVServer 3 PutAppend start,ClientId:1191088554788706993,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 3 Error wrong leader
+2023/05/29 20:50:05 KVServer 2 PutAppend start,ClientId:1191088554788706993,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 2 Error wrong leader
+2023/05/29 20:50:05 KVServer 0 PutAppend start,ClientId:1191088554788706993,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 0 Error wrong leader
+2023/05/29 20:50:05 KVServer 3 PutAppend start,ClientId:1191088554788706993,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 3 Error wrong leader
+2023/05/29 20:50:05 KVServer 2 PutAppend start,ClientId:1191088554788706993,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 2 Error wrong leader
+2023/05/29 20:50:05 KVServer 0 PutAppend start,ClientId:1191088554788706993,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 0 Error wrong leader
+2023/05/29 20:50:05 KVServer 3 PutAppend start,ClientId:1191088554788706993,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 3 Error wrong leader
+2023/05/29 20:50:05 KVServer 2 PutAppend start,ClientId:1191088554788706993,SeqId:1Index:-1
+2023/05/29 20:50:05 Server 2 Error wrong leader
+2023/05/29 20:50:05 KVServer 0 PutAppend start,ClientId:1191088554788706993,SeqId:1Index:2
+2023/05/29 20:50:05 kv 0 ReceiveApplyMsg,index:1
+2023/05/29 20:50:05 kv 0 ReceiveApplyMsg,index:2
+2023/05/29 20:50:05 ------SendingApplyMsg ClientId:1191088554788706993 SeqId:1 Index:2-------
+2023/05/29 20:50:05 replyMsg.Err:OK,Term:2,index:2
+2023/05/29 20:50:05 index 2 chan closed!
+2023/05/29 20:50:05 KVServer 0 Get start,ClientId:1191088554788706993,SeqId:2Index:3
+2023/05/29 20:50:05 kv 0 ReceiveApplyMsg,index:3
+2023/05/29 20:50:05 ------SendingApplyMsg ClientId:1191088554788706993 SeqId:2 Index:3-------
+2023/05/29 20:50:05 replyMsg.Seq:2,Err:OK,Term:2,index:3
+2023/05/29 20:50:05 index 3 chan closed!
+  ... Passed --   0.4  5    56    2
+Test: no progress in minority (3A) ...
+2023/05/29 20:50:05 kv 2 ReceiveApplyMsg,index:2
+2023/05/29 20:50:05 kv 3 ReceiveApplyMsg,index:1
+2023/05/29 20:50:05 kv 3 ReceiveApplyMsg,index:2
+2023/05/29 20:50:05 kv 3 ReceiveApplyMsg,index:3
+2023/05/29 20:50:05 kv 2 ReceiveApplyMsg,index:3
+2023/05/29 20:50:05 KVServer 1 PutAppend start,ClientId:119214178217983366,SeqId:1Index:2
+2023/05/29 20:50:05 KVServer 1 Get start,ClientId:665665052337102122,SeqId:1Index:3
+signal: interrupt
+FAIL	6.824/kvraft	0.733s
